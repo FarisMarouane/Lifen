@@ -1,0 +1,23 @@
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  border: medium dashed black;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.dropzone--isActive {
+  border: thick double red;
+}
+
+.dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fa-cloud-upload-alt {
+  color: #005A9C;
+}
