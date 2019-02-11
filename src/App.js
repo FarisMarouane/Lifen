@@ -18,7 +18,6 @@ class App extends Component {
 
   onDrop = file => {
     if (file.length > 0) {
-      console.log('THIS: ', this);
       this.setState({
         file: file,
       });
@@ -44,6 +43,13 @@ class App extends Component {
   };
 
   componentDidMount() {
+    const evtSource = new EventSource('http://localhost:5000/api/event-stream');
+    const cb = message => {
+      // this.onDrop(message.data);
+      console.log('SSE: ', message);
+    };
+    evtSource.addEventListener('file', cb, false);
+
     fetch(`${API}/Binary`)
       .then(response => response.json())
       .then(r => {
